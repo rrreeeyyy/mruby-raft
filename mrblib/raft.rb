@@ -214,7 +214,6 @@ module Raft
       @role = CANDIDATE_ROLE
       candidate_update
     end
-
     protected :follower_update
 
     def candidate_update
@@ -248,7 +247,6 @@ module Raft
       @role = LEADER_ROLE
       establish_leadership
     end
-
     protected :candidate_update
 
     def leader_update
@@ -266,7 +264,6 @@ module Raft
       end
       handle_commits(new_commit_index)
     end
-
     protected :leader_update
 
     def handle_commits(new_commit_index)
@@ -278,7 +275,6 @@ module Raft
         next_commit += 1
       end
     end
-
     protected :handle_commits
 
     def establish_leadership
@@ -292,7 +288,6 @@ module Raft
       end
       send_heartbeats
     end
-
     protected :establish_leadership
 
     def send_heartbeats
@@ -311,7 +306,6 @@ module Raft
         append_entries_to_follower(node_id, request, response)
       end
     end
-
     protected :send_heartbeats
 
     def append_entries_to_follower(node_id, request, response)
@@ -350,7 +344,6 @@ module Raft
         end
       end
     end
-
     protected :append_entries_to_follower
 
     def handle_request_vote(request)
